@@ -33,6 +33,7 @@ int		xdigits()
 		}
 		fflush(stdin);
 	}
+	fflush(stdin);
 	return (input);
 }
 
@@ -112,7 +113,6 @@ int		guess_armstrong()
 	int		try_again;
 
 	try_again = 1;
-	system("cls");
 	while (try_again)
 	{
 		input = xdigits();
@@ -168,13 +168,19 @@ int 	main()
 		printf("Would you like to\n(1) Guess an Armstrong number\n(2) Calculate Armstrong numbers\n(3) Quit\n~\n");
 		while (scanf("%d", &input) == EOF || input > 3 || input < 1)
 		{
-			printf("Oops, try again.\nWould you like to\n(1) Guess an Armstrong number\n(2) Calculate Armstrong numbers\n(3) Quit\n~\n");
 			fflush(stdin);
+			system("cls");
+			printf("Oops, try again.\nWould you like to\n(1) Guess an Armstrong number\n(2) Calculate Armstrong numbers\n(3) Quit\n~\n");
 		}
 		if (input == 1)
+		{
+			fflush(stdin);
+			system("cls");
 			guess_armstrong();
+		}
 		if (input == 2)
 		{
+			fflush(stdin);
 			system("cls");
 			cal_strong(0,1);
 		}
