@@ -1,15 +1,10 @@
-/********************************************************
-*                                                       *
-*   By: iperez <github.com/42Isaac>             42      *
-*                                                       *
-********************************************************/
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <math.h>
 
 int x = 6;				/*Max digits*/
-int max = 999999;		/*Max number*/
+int max = 9999999;		/*Max number*/
 
 /*
 	Prompts the user for an 'input', and determines if 'input' 
@@ -34,7 +29,6 @@ int		xdigits()
 		}
 		fflush(stdin);
 	}
-	fflush(stdin);
 	return (input);
 }
 
@@ -91,7 +85,6 @@ int		yorn(char *question)
 {
 	char	try_again;
 	
-	fflush(stdin);
 	while (scanf(" %c", &try_again) < 1 || try_again != 'y' && try_again != 'n' && try_again != 'Y' && try_again != 'N')
 		{
 			printf("INVALID INPUT\n");
@@ -141,7 +134,6 @@ int		cal_strong(int start, int i)
 		printf("\n~\nLimit reached\n~\n\nTry again? y/n: ");
 		if (yorn("Try again?"))
 			{
-				system("cls");
 				printf("Too Bad.");
 				sleep(3);
 			}
@@ -152,7 +144,7 @@ int		cal_strong(int start, int i)
 	return 0;
 }
 
-// Returns n-digits of a number when calculating log base 10 of input number then rounds up -jlagos
+// Returns n-digits of a number when calculating log base 10 of input number then rounds up
 int		count_digits(int n) {
 	switch (n)
 	{
@@ -164,7 +156,6 @@ int		count_digits(int n) {
 	}
 }
 
-// -jlagos
 int		cal_strong_n(int start, int n) {
 	while (!is_armstrong(start) && start < max)
 		start++;
@@ -188,7 +179,6 @@ int		cal_strong_n(int start, int n) {
 	cal_strong_n(++start, n);
 	return 0;
 }
-
 /*
 	Main. Educates the user on using the program, launches the desired
 	functions, and returns the user to the "menu" upon completion.
@@ -201,31 +191,21 @@ int 	main()
 	input = 0;
 	while (input != 4)
 	{
-		system("cls");
 		printf("An Armstrong number is equal to the sum of the products\nof its digits raised to the power of the total number of digits.\nI'm too tired to figure out this sentence rn.\nIf you don't know what it is Google it.\n\n");
 		printf("Would you like to\n(1) Guess an Armstrong number\n(2) Calculate Armstrong numbers\n(3) List Armstrong numbers grouped by the same n-digit number\n(4) Quit\n~\n");
 		while (scanf("%d", &input) == EOF || input > 4 || input < 1)
 		{
-			fflush(stdin);
-			system("cls");
 			printf("Oops, try again.\nWould you like to\n(1) Guess an Armstrong number\n(2) Calculate Armstrong numbers\n(3) List Armstrong numbers grouped by the same n-digit number\n(4) Quit\n~\n");
+			fflush(stdin);
 		}
 		if (input == 1)
-		{
-			fflush(stdin);
-			system("cls");
 			guess_armstrong();
-		}
 		if (input == 2)
 		{
-			fflush(stdin);
-			system("cls");
 			cal_strong(0,1);
 		}
 		if (input == 3)
 		{
-			fflush(stdin);
-			system("cls");
 			cal_strong_n(0, 0);
 		}
 	}
