@@ -89,6 +89,7 @@ int		yorn(char *question)
 {
 	char	try_again;
 	
+	fflush(stdin);
 	while (scanf(" %c", &try_again) < 1 || try_again != 'y' && try_again != 'n' && try_again != 'Y' && try_again != 'N')
 		{
 			printf("INVALID INPUT\n");
@@ -111,7 +112,7 @@ int		guess_armstrong()
 	int		try_again;
 
 	try_again = 1;
-	system("clear");
+	system("cls");
 	while (try_again)
 	{
 		input = xdigits();
@@ -139,7 +140,7 @@ int		cal_strong(int start, int i)
 		printf("\n~\nLimit reached\n~\n\nTry again? y/n: ");
 		if (yorn("Try again?"))
 			{
-				system("clear");
+				system("cls");
 				printf("Too Bad.");
 				sleep(3);
 			}
@@ -162,7 +163,7 @@ int 	main()
 	input = 0;
 	while (input != 3)
 	{
-		system("clear");
+		system("cls");
 		printf("An Armstrong number is equal to the sum of the products\nof its digits raised to the power of the total number of digits.\nI'm too tired to figure out this sentence rn.\nIf you don't know what it is Google it.\n\n");
 		printf("Would you like to\n(1) Guess an Armstrong number\n(2) Calculate Armstrong numbers\n(3) Quit\n~\n");
 		while (scanf("%d", &input) == EOF || input > 3 || input < 1)
@@ -174,7 +175,7 @@ int 	main()
 			guess_armstrong();
 		if (input == 2)
 		{
-			system("clear");
+			system("cls");
 			cal_strong(0,1);
 		}
 	}
